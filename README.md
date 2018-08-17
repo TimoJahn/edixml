@@ -14,4 +14,4 @@
 - make_xml(segments: list) -> ElementTree.Element
 - pretty_xml(root: ElementTree.Element) -> str
 
-Read the EDIXML.ipynb
+Read the EDIXML.ipynb or play with the Tk-UI gui.py 
