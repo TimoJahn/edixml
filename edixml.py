@@ -19,7 +19,7 @@ pretty_xml(root: ElementTree.Element) -> str
 
 Experimental
 ------------
-report(segments: list)                           -> None
+report(segments: list)                           -> str
 make_edi_xml(segments: list, sd: dict, ed: dict) -> ElementTree.Element
 
 Example message
