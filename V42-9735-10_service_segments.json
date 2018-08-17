@@ -1,0 +1,3438 @@
+{
+    "UNB": {
+        "name": "Interchange header",
+        "description": "Function: To identify an interchange",
+        "table": [
+            {
+                "pos": "010",
+                "code": "S001",
+                "name": "SYNTAX IDENTIFIER",
+                "mc": "M",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0001",
+                "name": "Syntax identifier",
+                "mc": "M",
+                "repeat": null,
+                "representation": "a4"
+            },
+            {
+                "pos": null,
+                "code": "0002",
+                "name": "Syntax version number",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an1"
+            },
+            {
+                "pos": null,
+                "code": "0080",
+                "name": "Service code list directory version number",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..6"
+            },
+            {
+                "pos": null,
+                "code": "0133",
+                "name": "Character encoding, coded",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": "020",
+                "code": "S002",
+                "name": "INTERCHANGE SENDER",
+                "mc": "M",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0004",
+                "name": "Interchange sender identification",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0007",
+                "name": "Identification code qualifier",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..4"
+            },
+            {
+                "pos": null,
+                "code": "0008",
+                "name": "Interchange sender internal identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0042",
+                "name": "Interchange sender internal sub-identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": "030",
+                "code": "S003",
+                "name": "INTERCHANGE RECIPIENT",
+                "mc": "M",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0010",
+                "name": "Interchange recipient identification",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0007",
+                "name": "Identification code qualifier",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..4"
+            },
+            {
+                "pos": null,
+                "code": "0014",
+                "name": "Interchange recipient internal identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0046",
+                "name": "Interchange recipient internal sub-identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": "040",
+                "code": "S004",
+                "name": "DATE AND TIME OF PREPARATION",
+                "mc": "M",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0017",
+                "name": "Date",
+                "mc": "M",
+                "repeat": null,
+                "representation": "n8"
+            },
+            {
+                "pos": null,
+                "code": "0019",
+                "name": "Time",
+                "mc": "M",
+                "repeat": null,
+                "representation": "n4"
+            },
+            {
+                "pos": "050",
+                "code": "0020",
+                "name": "Interchange control reference",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "an..14"
+            },
+            {
+                "pos": "060",
+                "code": "S005",
+                "name": "RECIPIENT'S REFERENCE/PASSWORD DETAILS",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0022",
+                "name": "Recipient reference/password",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..14"
+            },
+            {
+                "pos": null,
+                "code": "0025",
+                "name": "Recipient reference/password qualifier",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an2"
+            },
+            {
+                "pos": "070",
+                "code": "0026",
+                "name": "Application reference",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..14"
+            },
+            {
+                "pos": "080",
+                "code": "0029",
+                "name": "Processing priority code",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "a1"
+            },
+            {
+                "pos": "090",
+                "code": "0031",
+                "name": "Acknowledgement request",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "n1"
+            },
+            {
+                "pos": "100",
+                "code": "0032",
+                "name": "Interchange agreement identifier",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..35"
+            },
+            {
+                "pos": "110",
+                "code": "0035",
+                "name": "Test indicator",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "n1"
+            }
+        ]
+    },
+    "UNH": {
+        "name": "MESSAGE HEADER",
+        "description": "To head, identify and specify a message. Notes: 1. Data element S009/0057 is retained for upward compatibility. The use of S016 and/or S017 is encouraged in preference. 2. The combination of the values carried in data elements 0062 and S009 shall be used to identify uniquely the message within its group (if used) or if not used, within its interchange, for the purpose of acknowledgement.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0062",
+                "name": "Message reference number",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "an..14"
+            },
+            {
+                "pos": "020",
+                "code": "S009",
+                "name": "MESSAGE IDENTIFIER",
+                "mc": "M",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0065",
+                "name": "Message type",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..6"
+            },
+            {
+                "pos": null,
+                "code": "0052",
+                "name": "Message version number",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0054",
+                "name": "Message release number",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0051",
+                "name": "Controlling agency, coded",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0057",
+                "name": "Association assigned code",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..6"
+            },
+            {
+                "pos": null,
+                "code": "0110",
+                "name": "Code list directory version number",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..6"
+            },
+            {
+                "pos": null,
+                "code": "0113",
+                "name": "Message type sub-function identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..6"
+            },
+            {
+                "pos": "030",
+                "code": "0068",
+                "name": "Common access reference",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..35"
+            },
+            {
+                "pos": "040",
+                "code": "S010",
+                "name": "STATUS OF THE TRANSFER",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0070",
+                "name": "Sequence of transfers",
+                "mc": "M",
+                "repeat": null,
+                "representation": "n..2"
+            },
+            {
+                "pos": null,
+                "code": "0073",
+                "name": "First and last transfer",
+                "mc": "C",
+                "repeat": null,
+                "representation": "a1"
+            },
+            {
+                "pos": "050",
+                "code": "S016",
+                "name": "MESSAGE SUBSET IDENTIFICATION",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0115",
+                "name": "Message subset identification",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..14"
+            },
+            {
+                "pos": null,
+                "code": "0116",
+                "name": "Message subset version number",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0118",
+                "name": "Message subset release number",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0051",
+                "name": "Controlling agency, coded",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": "060",
+                "code": "S017",
+                "name": "MESSAGE IMPLEMENTATION GUIDELINE IDENTIFICATION",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0121",
+                "name": "Message implementation guideline identification",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..14"
+            },
+            {
+                "pos": null,
+                "code": "0122",
+                "name": "Message implementation guideline version number",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0124",
+                "name": "Message implementation guideline release number",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0051",
+                "name": "Controlling agency, coded",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": "070",
+                "code": "S018",
+                "name": "SCENARIO IDENTIFICATION",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0127",
+                "name": "Scenario identification",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..14"
+            },
+            {
+                "pos": null,
+                "code": "0128",
+                "name": "Scenario version number",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0130",
+                "name": "Scenario release number",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0051",
+                "name": "Controlling agency, coded",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            }
+        ]
+    },
+    "UNS": {
+        "name": "SECTION CONTROL",
+        "description": "To separate header, detail and summary sections of a message. Notes: To be used by message designers only when required to avoid ambiguities.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0081",
+                "name": "Section identification",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "a1"
+            }
+        ]
+    },
+    "UNT": {
+        "name": "MESSAGE TRAILER",
+        "description": "To end and check the completeness of a message. Notes: 1. 0062, the value shall be identical to the value in 0062 in the corresponding UNH segment.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0074",
+                "name": "Number of segments in a message",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "n..10"
+            },
+            {
+                "pos": "020",
+                "code": "0062",
+                "name": "Message reference number",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "an..14"
+            }
+        ]
+    },
+    "UNZ": {
+        "name": "Section control",
+        "description": "Function: To separate header, detail and summary sections of a message. Note: To be used by message designers only when required to avoid ambiguities.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0036",
+                "name": "Interchange control count",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "n..6"
+            },
+            {
+                "pos": "020",
+                "code": "0020",
+                "name": "Interchange control reference",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "an..14"
+            }
+        ]
+    },
+    "UGH": {
+        "name": "ANTI-COLLISION SEGMENT GROUP HEADER",
+        "description": "To head, identify and specify an anti-collision segment group.Notes: 1. 0087, the value shall be the segment group number of the UGH/UGT segment group as stated in the message specification. It shall be identical to the value in 0087 in the corresponding UGT segment.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0087",
+                "name": "ANTI-COLLISION SEGMENT GROUP IDENTIFICATION",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "an..4"
+            }
+        ]
+    },
+    "UGT": {
+        "name": "ANTI-COLLISION SEGMENT GROUP TRAILER",
+        "description": "To end and check the completeness of an anti-collision segment group. Notes: 1. 0087, the value shall be the segment group number of the UGH/UGT segment group as stated in the message specification. It shall be identical to the value in 0087 in the corresponding UGH segment.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0087",
+                "name": "Anti-collision segment group identification",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "an..4"
+            }
+        ]
+    },
+    "USC": {
+        "name": "CERTIFICATE",
+        "description": "Function: To convey the public key and the credentials of its owner.DEPENDENCY NOTES: 1. D5(110, 100) If first, then allOTHER NOTES: 2. 0536, if a full certificate (including the USR segment) is not used, the only data elements of the certificate shall be a unique certificate reference made of: the certificate reference (0536), the S500 identifying the issuer certification authority or the S500 identifying the certificate owner, including its public key name. In the case of a non-EDIFACT certificate data element 0545 shall also be present.3. S500/0538, identifies a public key: either of the owner of this certificate, or the public key related to the private key used by the certificate issuer (certification authority or CA) to sign this certificate.4. 0507, the original character set encoding of the certificate when it was signed. If no value is specified, the character set encoding corresponds to that identified by the character set repertoire standard.5. 0543, the original character set repertoire of the certificate when it was signed. If no value is specified, the default is defined in the interchange header. 6. S505, when this certificate is transferred, it will use the default service characters defined in part 1 of ISO 9735, or those defined in the service string advice, if used. This data element may specify the service characters used when the certificate was signed. If this data element is not used then they are the default service characters. 7. S501, dates and times involved in the certification process. Four occurrences of this composite data element are possible: one for the certificate generation date and time, one for the certificate start of validity period, one for the certificate end of validity period, one for revocation date and time.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0536",
+                "name": "CERTIFICATE REFERENCE",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..70"
+            },
+            {
+                "pos": "020",
+                "code": "S500",
+                "name": "SECURITY IDENTIFICATION DETAILS",
+                "mc": "C",
+                "repeat": 2,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0577",
+                "name": "Security party qualifier",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0538",
+                "name": "Key name",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0511",
+                "name": "Security party identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..1024"
+            },
+            {
+                "pos": null,
+                "code": "0513",
+                "name": "Security party code list qualifier",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0515",
+                "name": "Security party code list responsible agency, coded",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0586",
+                "name": "Security party name",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0586",
+                "name": "Security party name",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0586",
+                "name": "Security party name",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": "030",
+                "code": "0545",
+                "name": "CERTIFICATE SYNTAX AND VERSION, CODED",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "040",
+                "code": "0505",
+                "name": "FILTER FUNCTION, CODED",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "050",
+                "code": "0507",
+                "name": "ORIGINAL CHARACTER SET ENCODING, CODED",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "060",
+                "code": "0543",
+                "name": "CERTIFICATE ORIGINAL CHARACTER SET REPERTOIRE, CODED",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "070",
+                "code": "0546",
+                "name": "USER AUTHORISATION LEVEL",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..35"
+            },
+            {
+                "pos": "080",
+                "code": "S505",
+                "name": "SERVICE CHARACTER FOR SIGNATURE",
+                "mc": "C",
+                "repeat": 5,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0551",
+                "name": "Service character for signature qualifier",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0548",
+                "name": "Service character for signature",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..4"
+            },
+            {
+                "pos": "090",
+                "code": "S501",
+                "name": "SECURITY DATE AND TIME",
+                "mc": "C",
+                "repeat": 4,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0517",
+                "name": "Date and time qualifier",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0338",
+                "name": "Event date",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n..8"
+            },
+            {
+                "pos": null,
+                "code": "0314",
+                "name": "Event time",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..15"
+            },
+            {
+                "pos": null,
+                "code": "0336",
+                "name": "Time offset",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n4"
+            },
+            {
+                "pos": "100",
+                "code": "0567",
+                "name": "SECURITY STATUS, CODED",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "110",
+                "code": "0569",
+                "name": "REVOCATION REASON, CODED",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..3"
+            }
+        ]
+    },
+    "UCD": {
+        "name": "DATA ELEMENT ERROR INDICATION",
+        "description": "Function: To identify an erroneous stand-alone, composite or component data element, and to identify the nature of the error.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0085",
+                "name": "SYNTAX ERROR, CODED",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "020",
+                "code": "S011",
+                "name": "DATA ELEMENT IDENTIFICATION",
+                "mc": "M",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0098",
+                "name": "Erroneous data element position in segment",
+                "mc": "M",
+                "repeat": null,
+                "representation": "n..3"
+            },
+            {
+                "pos": null,
+                "code": "0104",
+                "name": "Erroneous component data element position",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n..3"
+            },
+            {
+                "pos": null,
+                "code": "0136",
+                "name": "Erroneous data element occurrence",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n..6"
+            }
+        ]
+    },
+    "USD": {
+        "name": "DATA ENCRYPTION HEADER",
+        "description": "Function: To specify size (i.e. length of data in octets of bits) of encrypted data following the segment terminator of this segment.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0556",
+                "name": "LENGTH OF DATA IN OCTETS OF BITS",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "n..18"
+            },
+            {
+                "pos": "020",
+                "code": "0518",
+                "name": "ENCRYPTION REFERENCE NUMBER",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..35"
+            },
+            {
+                "pos": "030",
+                "code": "0582",
+                "name": "NUMBER OF PADDING BYTES",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "n..2"
+            }
+        ]
+    },
+    "USU": {
+        "name": "DATA ENCRYPTION TRAILER",
+        "description": "Function: To provide a trailer for the encrypted data. NOTES: 1. 0556, the value shall be identical to the value in 0556 in the corresponding USD segment. 2. 0518, the value shall be identical to the value in 0518 in the corresponding USD segment.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0556",
+                "name": "LENGTH OF DATA IN OCTETS OF BITS",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "n..18"
+            },
+            {
+                "pos": "020",
+                "code": "0518",
+                "name": "ENCRYPTION REFERENCE NUMBER",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..35"
+            }
+        ]
+    },
+    "UNG": {
+        "name": "GROUP HEADER",
+        "description": "Function: To head, identify and specify a group of messages and/or packages, which may be used for internal routing and which may contain one or more message types and/or packages. DEPENDENCY NOTES: 1. D2(010, 060, 070) All or none OTHER NOTES: 2. This data element is only used if the following conditions apply: i) the group contains messages only, and ii) the messages are of a single message type. 3. S004, if S004 is not present in UNG, the date and time of preparation is the same as indicated for the interchange in S004 in UNB. 4. This data element will be deleted from the UNG segment in the next version of the standard. Therefore its use in UNG is not recommended. 5. The combination of the values carried in data elements S006, S007 and 0048 shall be used to identify uniquely the group within its interchange, for the purpose of acknowledgement.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0038",
+                "name": "MESSAGE GROUP IDENTIFICATION",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..6"
+            },
+            {
+                "pos": "020",
+                "code": "S006",
+                "name": "APPLICATION SENDER IDENTIFICATION",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0040",
+                "name": "Application sender identification",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0007",
+                "name": "Identification code qualifier",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..4"
+            },
+            {
+                "pos": "030",
+                "code": "S007",
+                "name": "APPLICATION RECIPIENT IDENTIFICATION",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0044",
+                "name": "Application recipient identification",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0007",
+                "name": "Identification code qualifier",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..4"
+            },
+            {
+                "pos": "040",
+                "code": "S004",
+                "name": "DATE AND TIME OF PREPARATION",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0017",
+                "name": "Date",
+                "mc": "M",
+                "repeat": null,
+                "representation": "n8"
+            },
+            {
+                "pos": null,
+                "code": "0019",
+                "name": "Time",
+                "mc": "M",
+                "repeat": null,
+                "representation": "n4"
+            },
+            {
+                "pos": "050",
+                "code": "0048",
+                "name": "GROUP REFERENCE NUMBER",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "an..14"
+            },
+            {
+                "pos": "060",
+                "code": "0051",
+                "name": "CONTROLLING AGENCY, CODED",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "070",
+                "code": "S008",
+                "name": "MESSAGE VERSION",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0052",
+                "name": "Message version number",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0054",
+                "name": "Message release number",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0057",
+                "name": "Association assigned code",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..6"
+            },
+            {
+                "pos": "080",
+                "code": "0058",
+                "name": "APPLICATION PASSWORD",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..14"
+            }
+        ]
+    },
+    "UCF": {
+        "name": "GROUP RESPONSE",
+        "description": "To identify a group in the subject interchange and to indicate acknowledgement or rejection (action taken) of the UNG and UNE segments, and to identify any error related to these segments. It can also identify errors related to the USA, USC, USD, USH, USR, UST, or USU security segments when they appear at the group level. Depending on the action code, it may also indicate the action taken on the messages and packages within that group. DEPENDENCY NOTES: 1. D5(060, 050) If first, then all 2. D5(070, 060, 050) If first, then all 3. D5(080, 060, 050, 090) If first, then all 4. D5(090, 080, 060, 050) If first, then all OTHER NOTES: 5. 0135, may only contain the values UNG, UNE, USA, USC, USD, USH, USR, UST, or USU. 6. This data element shall be present when reporting an error in a security segment. 7. This data element shall be present if it was present in the subject interchange.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0048",
+                "name": "GROUP REFERENCE NUMBER",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "an..14"
+            },
+            {
+                "pos": "020",
+                "code": "S006",
+                "name": "APPLICATION SENDER IDENTIFICATION",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0040",
+                "name": "Application sender identification",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0007",
+                "name": "Identification code qualifier",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..4"
+            },
+            {
+                "pos": "030",
+                "code": "S007",
+                "name": "APPLICATION RECIPIENT IDENTIFICATION",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0044",
+                "name": "Application recipient identification",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0007",
+                "name": "Identification code qualifier",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..4"
+            },
+            {
+                "pos": "040",
+                "code": "0083",
+                "name": "ACTION, CODED",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "050",
+                "code": "0085",
+                "name": "SYNTAX ERROR, CODED",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "060",
+                "code": "0135",
+                "name": "SERVICE SEGMENT TAG, CODED",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "070",
+                "code": "S011",
+                "name": "DATA ELEMENT IDENTIFICATION",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0098",
+                "name": "Erroneous data element position in segment",
+                "mc": "M",
+                "repeat": null,
+                "representation": "n..3"
+            },
+            {
+                "pos": null,
+                "code": "0104",
+                "name": "Erroneous component data element position",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n..3"
+            },
+            {
+                "pos": null,
+                "code": "0136",
+                "name": "Erroneous data element occurrence",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n..6"
+            },
+            {
+                "pos": "080",
+                "code": "0534",
+                "name": "SECURITY REFERENCE NUMBER",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..14"
+            },
+            {
+                "pos": "090",
+                "code": "0138",
+                "name": "SECURITY SEGMENT POSITION",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "n..6"
+            }
+        ]
+    },
+    "UNE": {
+        "name": "GROUP TRAILER",
+        "description": "Function: To end and check the completeness of a group. NOTES: 1. 0048, the value shall be identical to the value in 0048 in the corresponding UNG segment.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0060",
+                "name": "GROUP CONTROL COUNT",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "n..6"
+            },
+            {
+                "pos": "020",
+                "code": "0048",
+                "name": "GROUP REFERENCE NUMBER",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "an..14"
+            }
+        ]
+    },
+    "UIB": {
+        "name": "INTERACTIVE INTERCHANGE HEADER",
+        "description": "Function: To head and identify an interchange. DEPENDENCY NOTES: 1. D5(030, 020) If first, then all 2. D5(050, 020) If first, then all OTHER NOTES: 3. S001/0002, shall be '4' to indicate this version of the syntax. 4. S302/0304, when provided by the responder, shall be returned by the initiator throughout the dialogue. 5. S002/0004, may be same as S302/0303 for initiator of transaction. 6. 0325, only used if the interchange is a duplicate transfer. 7. 0035, set by the initiator if the dialogue is a test. Applies to every subsequent message and service segment in the dialogue. Otherwise not used. 8. Dialogue and transaction control can be accomplished through the dialogue (S302) and transaction (S303) references. Optionally, if another means of control is chosen, these two composite data elements need not be utilised.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "S001",
+                "name": "SYNTAX IDENTIFIER",
+                "mc": "M",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0001",
+                "name": "Syntax identifier",
+                "mc": "M",
+                "repeat": null,
+                "representation": "a4"
+            },
+            {
+                "pos": null,
+                "code": "0002",
+                "name": "Syntax version number",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an1"
+            },
+            {
+                "pos": null,
+                "code": "0080",
+                "name": "Service code list directory version number",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..6"
+            },
+            {
+                "pos": null,
+                "code": "0133",
+                "name": "Character encoding, coded",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0076",
+                "name": "Syntax release number",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an2"
+            },
+            {
+                "pos": "020",
+                "code": "S302",
+                "name": "DIALOGUE REFERENCE",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0300",
+                "name": "Initiator control reference",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0303",
+                "name": "Initiator reference identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0051",
+                "name": "Controlling agency, coded",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0304",
+                "name": "Responder control reference",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": "030",
+                "code": "S303",
+                "name": "TRANSACTION REFERENCE",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0306",
+                "name": "Transaction control reference",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0303",
+                "name": "Initiator reference identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0051",
+                "name": "Controlling agency, coded",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": "040",
+                "code": "S018",
+                "name": "SCENARIO IDENTIFICATION",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0127",
+                "name": "Scenario identification",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..14"
+            },
+            {
+                "pos": null,
+                "code": "0128",
+                "name": "Scenario version number",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0130",
+                "name": "Scenario release number",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0051",
+                "name": "Controlling agency, coded",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": "050",
+                "code": "S305",
+                "name": "DIALOGUE IDENTIFICATION",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0311",
+                "name": "Dialogue identification",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..14"
+            },
+            {
+                "pos": null,
+                "code": "0342",
+                "name": "Dialogue version number",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0344",
+                "name": "Dialogue release number",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0051",
+                "name": "Controlling agency, coded",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": "060",
+                "code": "S002",
+                "name": "INTERCHANGE SENDER",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0004",
+                "name": "Interchange sender identification",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0007",
+                "name": "Identification code qualifier",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..4"
+            },
+            {
+                "pos": null,
+                "code": "0008",
+                "name": "Interchange sender internal identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0042",
+                "name": "Interchange sender internal sub-identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": "070",
+                "code": "S003",
+                "name": "INTERCHANGE RECIPIENT",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0010",
+                "name": "Interchange recipient identification",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0007",
+                "name": "Identification code qualifier",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..4"
+            },
+            {
+                "pos": null,
+                "code": "0014",
+                "name": "Interchange recipient internal identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0046",
+                "name": "Interchange recipient internal sub-identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": "080",
+                "code": "S300",
+                "name": "DATE AND/OR TIME OF INITIATION",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0338",
+                "name": "Event date",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n..8"
+            },
+            {
+                "pos": null,
+                "code": "0314",
+                "name": "Event time",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..15"
+            },
+            {
+                "pos": null,
+                "code": "0336",
+                "name": "Time offset",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n4"
+            },
+            {
+                "pos": "090",
+                "code": "0325",
+                "name": "DUPLICATE INDICATOR",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "a1"
+            },
+            {
+                "pos": "100",
+                "code": "0035",
+                "name": "TEST INDICATOR",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "n1"
+            }
+        ]
+    },
+    "UIZ": {
+        "name": "INTERACTIVE INTERCHANGE TRAILER",
+        "description": "Function: To end and check the completeness of an interchange. NOTES: 1. S302, the value shall be identical to the value in the responder's dialogue reference in S302 in the UIB segment. 2. 0325, only used if the interchange is a duplicate transfer.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "S302",
+                "name": "DIALOGUE REFERENCE",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0300",
+                "name": "Initiator control reference",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0303",
+                "name": "Initiator reference identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0051",
+                "name": "Controlling agency, coded",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0304",
+                "name": "Responder control reference",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": "020",
+                "code": "0036",
+                "name": "INTERCHANGE CONTROL COUNT",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "n..6"
+            },
+            {
+                "pos": "030",
+                "code": "0325",
+                "name": "DUPLICATE INDICATOR",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "a1"
+            }
+        ]
+    },
+    "UIH": {
+        "name": "INTERACTIVE MESSAGE HEADER",
+        "description": "Function: To head, identify and specify a message. NOTES: 1. The value in 0340 shall be unique within the interchange (except for a duplicate transfer). 2. The value(s) in S302 shall be identical to the value(s) in S302 in the preceding UIB. 3. 0035, when used, test applies to the message only. 4. Dialogue control can be accomplished through the dialogue reference (S302). Optionally, if another means of control is chosen, this composite data element need not be utilised. 5. A combination of 0340 and S302 may be used to identify uniquely a message.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "S306",
+                "name": "INTERACTIVE MESSAGE IDENTIFIER",
+                "mc": "M",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0065",
+                "name": "Message type",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..6"
+            },
+            {
+                "pos": null,
+                "code": "0052",
+                "name": "Message version number",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0054",
+                "name": "Message release number",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0113",
+                "name": "Message type sub-function identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..6"
+            },
+            {
+                "pos": null,
+                "code": "0051",
+                "name": "Controlling agency, coded",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0057",
+                "name": "Association assigned code",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..6"
+            },
+            {
+                "pos": "020",
+                "code": "0340",
+                "name": "INTERACTIVE MESSAGE REFERENCE NUMBER",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..35"
+            },
+            {
+                "pos": "030",
+                "code": "S302",
+                "name": "DIALOGUE REFERENCE",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0300",
+                "name": "Initiator control reference",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0303",
+                "name": "Initiator reference identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0051",
+                "name": "Controlling agency, coded",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0304",
+                "name": "Responder control reference",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": "040",
+                "code": "S301",
+                "name": "STATUS OF TRANSFER - INTERACTIVE",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0320",
+                "name": "Sender sequence number",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n..6"
+            },
+            {
+                "pos": null,
+                "code": "0323",
+                "name": "Transfer position, coded",
+                "mc": "C",
+                "repeat": null,
+                "representation": "a1"
+            },
+            {
+                "pos": null,
+                "code": "0325",
+                "name": "Duplicate Indicator",
+                "mc": "C",
+                "repeat": null,
+                "representation": "a1"
+            },
+            {
+                "pos": "050",
+                "code": "S300",
+                "name": "DATE AND/OR TIME OF INITIATION",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0338",
+                "name": "Event date",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n..8"
+            },
+            {
+                "pos": null,
+                "code": "0314",
+                "name": "Event time",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..15"
+            },
+            {
+                "pos": null,
+                "code": "0336",
+                "name": "Time offset",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n4"
+            },
+            {
+                "pos": "060",
+                "code": "0035",
+                "name": "TEST INDICATOR",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "n1"
+            }
+        ]
+    },
+    "UIT": {
+        "name": "INTERACTIVE MESSAGE TRAILER",
+        "description": "Function: To end and check the completeness of a message. NOTES: 1. 0340, the value shall be identical to the value in 0340 in the corresponding UIH segment.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0340",
+                "name": "INTERACTIVE MESSAGE REFERENCE NUMBER",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..35"
+            },
+            {
+                "pos": "020",
+                "code": "0074",
+                "name": "NUMBER OF SEGMENTS IN A MESSAGE",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "n..10"
+            }
+        ]
+    },
+    "UIR": {
+        "name": "INTERACTIVE STATUS",
+        "description": "Function: To report the status of the dialogue. Note: To avoid endless loops, the UIR segment is not used to respond to a UIR received with syntax errors. DEPENDENCY NOTES: 1. D1(050, 060) One and only one 2. D5(080, 070) If first, then all 3. D5(090, 070, 080) If first, then all OTHER NOTES: 4. 0340, the value shall be identical to the value in 0340 in the UIH of a message received by the sender of the UIR within the same dialogue. 5. 0800, the value shall be identical to the value in 0800 in the UNO received by the sender of the UIR within the same dialogue.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0331",
+                "name": "REPORT FUNCTION, CODED",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "020",
+                "code": "S307",
+                "name": "STATUS INFORMATION",
+                "mc": "C",
+                "repeat": 9,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0333",
+                "name": "Status, coded",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0332",
+                "name": "Status",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..70"
+            },
+            {
+                "pos": null,
+                "code": "0335",
+                "name": "Language, coded",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": "030",
+                "code": "S302",
+                "name": "DIALOGUE REFERENCE",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0300",
+                "name": "Initiator control reference",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0303",
+                "name": "Initiator reference identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0051",
+                "name": "Controlling agency, coded",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0304",
+                "name": "Responder control reference",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": "040",
+                "code": "S300",
+                "name": "DATE AND/OR TIME OF INITIATION",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0338",
+                "name": "Event date",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n..8"
+            },
+            {
+                "pos": null,
+                "code": "0314",
+                "name": "Event time",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..15"
+            },
+            {
+                "pos": null,
+                "code": "0336",
+                "name": "Time offset",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n4"
+            },
+            {
+                "pos": "050",
+                "code": "0340",
+                "name": "INTERACTIVE MESSAGE REFERENCE NUMBER",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..35"
+            },
+            {
+                "pos": "060",
+                "code": "0800",
+                "name": "PACKAGE REFERENCE NUMBER",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..35"
+            },
+            {
+                "pos": "070",
+                "code": "0085",
+                "name": "SYNTAX ERROR, CODED",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "080",
+                "code": "0096",
+                "name": "SEGMENT POSITION IN MESSAGE BODY",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "n..6"
+            },
+            {
+                "pos": "090",
+                "code": "S011",
+                "name": "DATA ELEMENT IDENTIFICATION",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0098",
+                "name": "Erroneous data element position in segment",
+                "mc": "M",
+                "repeat": null,
+                "representation": "n..3"
+            },
+            {
+                "pos": null,
+                "code": "0104",
+                "name": "Erroneous component data element position",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n..3"
+            },
+            {
+                "pos": null,
+                "code": "0136",
+                "name": "Erroneous data element occurrence",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n..6"
+            }
+        ]
+    },
+    "UCI": {
+        "name": "INTERCHANGE RESPONSE",
+        "description": "Function: To identify the subject interchange, to indicate interchange receipt, to indicate acknowledgement or rejection (action taken) of the UNA, UNB and UNZ segments, and to identify any error related to these segments. It can also identify errors related to the USA, USC, USD, USH, USR, UST, or USU security segments when they appear at the interchange level. Depending on the action code, it may also indicate the action taken on the groups, messages, and packages within that interchange. DEPENDENCY NOTES: 1. D5(060, 050) If first, then all 2. D5(070, 060, 050) If first, then all 3. D5(080, 060, 050, 090) If first, then all 4. D5(090, 080, 060, 050) If first, then all OTHER NOTES: 5. 0135, may only contain the values UNA, UNB, UNZ, USA, USC, USD, USH, USR, UST, or USU. 6. This data element shall be present when reporting an error in a security segment.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0020",
+                "name": "INTERCHANGE CONTROL REFERENCE",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "an..14"
+            },
+            {
+                "pos": "020",
+                "code": "S002",
+                "name": "INTERCHANGE SENDER",
+                "mc": "M",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0004",
+                "name": "Interchange sender identification",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0007",
+                "name": "Identification code qualifier",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..4"
+            },
+            {
+                "pos": null,
+                "code": "0008",
+                "name": "Interchange sender internal identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0042",
+                "name": "Interchange sender internal sub-identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": "030",
+                "code": "S003",
+                "name": "INTERCHANGE RECIPIENT",
+                "mc": "M",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0010",
+                "name": "Interchange recipient identification",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0007",
+                "name": "Identification code qualifier",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..4"
+            },
+            {
+                "pos": null,
+                "code": "0014",
+                "name": "Interchange recipient internal identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0046",
+                "name": "Interchange recipient internal sub-identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": "040",
+                "code": "0083",
+                "name": "ACTION, CODED",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "050",
+                "code": "0085",
+                "name": "SYNTAX ERROR, CODED",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "060",
+                "code": "0135",
+                "name": "SERVICE SEGMENT TAG, CODED",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "070",
+                "code": "S011",
+                "name": "DATA ELEMENT IDENTIFICATION",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0098",
+                "name": "Erroneous data element position in segment",
+                "mc": "M",
+                "repeat": null,
+                "representation": "n..3"
+            },
+            {
+                "pos": null,
+                "code": "0104",
+                "name": "Erroneous component data element position",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n..3"
+            },
+            {
+                "pos": null,
+                "code": "0136",
+                "name": "Erroneous data element occurrence",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n..6"
+            },
+            {
+                "pos": "080",
+                "code": "0534",
+                "name": "SECURITY REFERENCE NUMBER",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..14"
+            },
+            {
+                "pos": "090",
+                "code": "0138",
+                "name": "SECURITY SEGMENT POSITION",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "n..6"
+            }
+        ]
+    },
+    "USF": {
+        "name": "KEY MANAGEMENT FUNCTION",
+        "description": "Function: To specify the type of key management function and the status of a corresponding key or certificate.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0579",
+                "name": "KEY MANAGEMENT FUNCTION QUALIFIER",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "020",
+                "code": "S504",
+                "name": "LIST PARAMETER",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0575",
+                "name": "List parameter qualifier",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0558",
+                "name": "List parameter",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..70"
+            },
+            {
+                "pos": "030",
+                "code": "0567",
+                "name": "SECURITY STATUS, CODED",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "040",
+                "code": "0572",
+                "name": "CERTIFICATE SEQUENCE NUMBER",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "n..4"
+            },
+            {
+                "pos": "050",
+                "code": "0505",
+                "name": "FILTER FUNCTION, CODED",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..3"
+            }
+        ]
+    },
+    "UCM": {
+        "name": "MESSAGE/PACKAGE RESPONSE",
+        "description": "Function: To identify a message or package in the subject interchange, and to indicate that message's or package's acknowledgement or rejection (action taken), and to identify any error related to the UNH, UNT, UNO, and UNP segments. It can also identify errors related to the USA, USC, USD, USH, USR, UST, or USU security segments when they appear at the message or package level. DEPENDENCY NOTES: 1. D1(010, 070) One and only one 2. D2(010, 020) All or none 3. D2(070, 080) All or none 4. D5(050, 040) If first, then all 5. D5(060, 050, 040) If first, then all 6. D5(090, 050, 040, 100) If first, then all 7. D5(100, 090, 050, 040) If first, then all OTHER NOTES: 8. 0135, may only contain the values UNH, UNT, UNO, UNP, USA, USC, USD, USH, USR, UST, or USU. 9. This data element shall be present when reporting an error in a security segment.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0062",
+                "name": "MESSAGE REFERENCE NUMBER",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..14"
+            },
+            {
+                "pos": "020",
+                "code": "S009",
+                "name": "MESSAGE IDENTIFIER",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0065",
+                "name": "Message type",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..6"
+            },
+            {
+                "pos": null,
+                "code": "0052",
+                "name": "Message version number",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0054",
+                "name": "Message release number",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0051",
+                "name": "Controlling agency, coded",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0057",
+                "name": "Association assigned code",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..6"
+            },
+            {
+                "pos": null,
+                "code": "0110",
+                "name": "Code list directory version number",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..6"
+            },
+            {
+                "pos": null,
+                "code": "0113",
+                "name": "Message type sub-function identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..6"
+            },
+            {
+                "pos": "030",
+                "code": "0083",
+                "name": "ACTION, CODED",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "040",
+                "code": "0085",
+                "name": "SYNTAX ERROR, CODED",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "050",
+                "code": "0135",
+                "name": "SERVICE SEGMENT TAG, CODED",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "060",
+                "code": "S011",
+                "name": "DATA ELEMENT IDENTIFICATION",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0098",
+                "name": "Erroneous data element position in segment",
+                "mc": "M",
+                "repeat": null,
+                "representation": "n..3"
+            },
+            {
+                "pos": null,
+                "code": "0104",
+                "name": "Erroneous component data element position",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n..3"
+            },
+            {
+                "pos": null,
+                "code": "0136",
+                "name": "Erroneous data element occurrence",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n..6"
+            },
+            {
+                "pos": "070",
+                "code": "0800",
+                "name": "PACKAGE REFERENCE NUMBER",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..35"
+            },
+            {
+                "pos": "080",
+                "code": "S020",
+                "name": "REFERENCE IDENTIFICATION",
+                "mc": "C",
+                "repeat": 99,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0813",
+                "name": "Reference qualifier",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0802",
+                "name": "Reference identification number",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": "090",
+                "code": "0534",
+                "name": "SECURITY REFERENCE NUMBER",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..14"
+            },
+            {
+                "pos": "100",
+                "code": "0138",
+                "name": "SECURITY SEGMENT POSITION",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "n..6"
+            }
+        ]
+    },
+    "UNO": {
+        "name": "OBJECT HEADER",
+        "description": "Function: To head, identify and specify an object. NOTES: 1. The value in 0800 shall be unique within the interchange (except for a duplicate transfer). 2. One mandatory occurrence of S020 shall identify the Object Identification Number. 3. One occurrence of S021 is mandatory and shall be used for file format identification. 4. Data elements S302, S301, S300 and 0035 are for interactive EDI use only: - The value(s) in S302 shall be identical to the value(s) in S302 in the preceding UIB. - 0035, when used, test applies to the message or package only.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0800",
+                "name": "PACKAGE REFERENCE NUMBER",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "an..35"
+            },
+            {
+                "pos": "020",
+                "code": "S020",
+                "name": "REFERENCE IDENTIFICATION",
+                "mc": "M",
+                "repeat": 99,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0813",
+                "name": "Reference qualifier",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0802",
+                "name": "Reference identification number",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": "030",
+                "code": "S021",
+                "name": "OBJECT TYPE IDENTIFICATION",
+                "mc": "M",
+                "repeat": 99,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0805",
+                "name": "Object type qualifier",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0809",
+                "name": "Object type attribute identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..256"
+            },
+            {
+                "pos": null,
+                "code": "0808",
+                "name": "Object type attribute",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..256"
+            },
+            {
+                "pos": null,
+                "code": "0051",
+                "name": "Controlling agency, coded",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": "040",
+                "code": "S022",
+                "name": "STATUS OF THE OBJECT",
+                "mc": "M",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0810",
+                "name": "Length of object in octets of bits",
+                "mc": "M",
+                "repeat": null,
+                "representation": "n..18"
+            },
+            {
+                "pos": null,
+                "code": "0814",
+                "name": "Number of segments before object",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n..3"
+            },
+            {
+                "pos": null,
+                "code": "0070",
+                "name": "Sequence of transfers",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n..2"
+            },
+            {
+                "pos": null,
+                "code": "0073",
+                "name": "First and last transfer",
+                "mc": "C",
+                "repeat": null,
+                "representation": "a1"
+            },
+            {
+                "pos": "050",
+                "code": "S302",
+                "name": "DIALOGUE REFERENCE",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0300",
+                "name": "Initiator control reference",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0303",
+                "name": "Initiator reference identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0051",
+                "name": "Controlling agency, coded",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0304",
+                "name": "Responder control reference",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": "060",
+                "code": "S301",
+                "name": "STATUS OF TRANSFER - INTERACTIVE",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0320",
+                "name": "Sender sequence number",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n..6"
+            },
+            {
+                "pos": null,
+                "code": "0323",
+                "name": "Transfer position, coded",
+                "mc": "C",
+                "repeat": null,
+                "representation": "a1"
+            },
+            {
+                "pos": null,
+                "code": "0325",
+                "name": "Duplicate Indicator",
+                "mc": "C",
+                "repeat": null,
+                "representation": "a1"
+            },
+            {
+                "pos": "070",
+                "code": "S300",
+                "name": "DATE AND/OR TIME OF INITIATION",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0338",
+                "name": "Event date",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n..8"
+            },
+            {
+                "pos": null,
+                "code": "0314",
+                "name": "Event time",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..15"
+            },
+            {
+                "pos": null,
+                "code": "0336",
+                "name": "Time offset",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n4"
+            },
+            {
+                "pos": "080",
+                "code": "0035",
+                "name": "TEST INDICATOR",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "n1"
+            }
+        ]
+    },
+    "UNP": {
+        "name": "OBJECT TRAILER",
+        "description": "Function: To end and check the completeness of an object. NOTES: 1. 0810, shall be identical to the value in data element 0810 in UNO. 2. 0800, shall be identical to the value in data element 0800 in UNO.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0810",
+                "name": "LENGTH OF OBJECT IN OCTETS OF BITS",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "n..18"
+            },
+            {
+                "pos": "020",
+                "code": "0800",
+                "name": "PACKAGE REFERENCE NUMBER",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "an..35"
+            }
+        ]
+    },
+    "USB": {
+        "name": "SECURED DATA IDENTIFICATION",
+        "description": "Function: To contain details related to the AUTACK.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0503",
+                "name": "RESPONSE TYPE, CODED",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "020",
+                "code": "S501",
+                "name": "SECURITY DATE AND TIME",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0517",
+                "name": "Date and time qualifier",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0338",
+                "name": "Event date",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n..8"
+            },
+            {
+                "pos": null,
+                "code": "0314",
+                "name": "Event time",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..15"
+            },
+            {
+                "pos": null,
+                "code": "0336",
+                "name": "Time offset",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n4"
+            },
+            {
+                "pos": "030",
+                "code": "S002",
+                "name": "INTERCHANGE SENDER",
+                "mc": "M",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0004",
+                "name": "Interchange sender identification",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0007",
+                "name": "Identification code qualifier",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..4"
+            },
+            {
+                "pos": null,
+                "code": "0008",
+                "name": "Interchange sender internal identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0042",
+                "name": "Interchange sender internal sub-identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": "040",
+                "code": "S003",
+                "name": "INTERCHANGE RECIPIENT",
+                "mc": "M",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0010",
+                "name": "Interchange recipient identification",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0007",
+                "name": "Identification code qualifier",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..4"
+            },
+            {
+                "pos": null,
+                "code": "0014",
+                "name": "Interchange recipient internal identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0046",
+                "name": "Interchange recipient internal sub-identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            }
+        ]
+    },
+    "USA": {
+        "name": "SECURITY ALGORITHM",
+        "description": "Function: To identify a security algorithm, the technical usage made of it, and to contain the technical parameters required. NOTES: 1. S503, provides space for one parameter. The number of repetitions of S503 actually used will depend on the algorithm used. The order of the parameters is arbitrary but, in each case, the actual value is preceded by a coded algorithm parameter qualifier.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "S502",
+                "name": "SECURITY ALGORITHM",
+                "mc": "M",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0523",
+                "name": "Use of algorithm, coded",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0525",
+                "name": "Cryptographic mode of operation, coded",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0533",
+                "name": "Mode of operation code list identifier",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0527",
+                "name": "Algorithm, coded",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0529",
+                "name": "Algorithm code list identifier",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0591",
+                "name": "Padding mechanism, coded",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0601",
+                "name": "Padding mechanism code list identifier",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": "020",
+                "code": "S503",
+                "name": "ALGORITHM PARAMETER",
+                "mc": "C",
+                "repeat": 9,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0531",
+                "name": "Algorithm parameter qualifier",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0554",
+                "name": "Algorithm parameter value",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..512"
+            }
+        ]
+    },
+    "USH": {
+        "name": "SECURITY HEADER",
+        "description": "Function: To specify a security mechanism applied to a EDIFACT structure (i.e.: either message/package, group or interchange). NOTES: 1. 0541, if not present the default scope is the current security header segment group and the message body or object itself. 2. 0507, the original character set encoding of the EDIFACT structure when it was secured. If no value is specified, the character set encoding corresponds to that identified by the syntax identifier character repertoire in the UNB segment. 3. S500, two occurrences are possible: one for the security originator, one for the security recipient. 4. S500/0538, may be used to establish the key relationship between the sending and receiving parties. 5. S501, may be used as a security timestamp. It is security related and may differ from any dates and times that may appear elsewhere in the EDIFACT structure. It may be used to provide sequence integrity.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0501",
+                "name": "SECURITY SERVICE, CODED",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "020",
+                "code": "0534",
+                "name": "SECURITY REFERENCE NUMBER",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "an..14"
+            },
+            {
+                "pos": "030",
+                "code": "0541",
+                "name": "SCOPE OF SECURITY APPLICATION, CODED",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "040",
+                "code": "0503",
+                "name": "RESPONSE TYPE, CODED",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "050",
+                "code": "0505",
+                "name": "FILTER FUNCTION, CODED",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "060",
+                "code": "0507",
+                "name": "ORIGINAL CHARACTER SET ENCODING, CODED",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "070",
+                "code": "0509",
+                "name": "ROLE OF SECURITY PROVIDER, CODED",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "080",
+                "code": "S500",
+                "name": "SECURITY IDENTIFICATION DETAILS",
+                "mc": "C",
+                "repeat": 2,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0577",
+                "name": "Security party qualifier",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0538",
+                "name": "Key name",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0511",
+                "name": "Security party identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..1024"
+            },
+            {
+                "pos": null,
+                "code": "0513",
+                "name": "Security party code list qualifier",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0515",
+                "name": "Security party code list responsible agency, coded",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0586",
+                "name": "Security party name",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0586",
+                "name": "Security party name",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0586",
+                "name": "Security party name",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": "090",
+                "code": "0520",
+                "name": "SECURITY SEQUENCE NUMBER",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..35"
+            },
+            {
+                "pos": "100",
+                "code": "S501",
+                "name": "SECURITY DATE AND TIME",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0517",
+                "name": "Date and time qualifier",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0338",
+                "name": "Event date",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n..8"
+            },
+            {
+                "pos": null,
+                "code": "0314",
+                "name": "Event time",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..15"
+            },
+            {
+                "pos": null,
+                "code": "0336",
+                "name": "Time offset",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n4"
+            }
+        ]
+    },
+    "USL": {
+        "name": "SECURITY LIST STATUS",
+        "description": "Function: To specify the status of security objects, such as keys or certificates to be delivered in a list, and the corresponding list parameters.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0567",
+                "name": "SECURITY STATUS, CODED",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "an..3"
+            },
+            {
+                "pos": "020",
+                "code": "S504",
+                "name": "LIST PARAMETER",
+                "mc": "C",
+                "repeat": 9,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0575",
+                "name": "List parameter qualifier",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0558",
+                "name": "List parameter",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..70"
+            }
+        ]
+    },
+    "USE": {
+        "name": "SECURITY MESSAGE RELATION",
+        "description": "Function: To specify the relation to earlier security messages, such as response to a particular request, or request for a particular answer.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0565",
+                "name": "MESSAGE RELATION, CODED",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "an..3"
+            }
+        ]
+    },
+    "USY": {
+        "name": "SECURITY ON REFERENCES",
+        "description": "Function: To identify the applicable header, and to contain the security result and/or to indicate the possible cause of security rejection for the referred value. DEPENDENCY NOTES: 1. D3(020, 030) One or more",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0534",
+                "name": "SECURITY REFERENCE NUMBER",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "an..14"
+            },
+            {
+                "pos": "020",
+                "code": "S508",
+                "name": "VALIDATION RESULT",
+                "mc": "C",
+                "repeat": 2,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0563",
+                "name": "Validation value qualifier",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0560",
+                "name": "Validation value",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..1024"
+            },
+            {
+                "pos": "030",
+                "code": "0571",
+                "name": "SECURITY ERROR, CODED",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..3"
+            }
+        ]
+    },
+    "USX": {
+        "name": "SECURITY REFERENCES",
+        "description": "Function: To refer to the secured EDIFACT structure and its associated date and time. DEPENDENCY NOTES: 1. D5(050, 040) If first, then all 2. D1(070, 090) One and only one 3. D5(060, 040) If first, then all 4. D5(080, 070) If first, then all",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0020",
+                "name": "INTERCHANGE CONTROL REFERENCE",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "an..14"
+            },
+            {
+                "pos": "020",
+                "code": "S002",
+                "name": "INTERCHANGE SENDER",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0004",
+                "name": "Interchange sender identification",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0007",
+                "name": "Identification code qualifier",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..4"
+            },
+            {
+                "pos": null,
+                "code": "0008",
+                "name": "Interchange sender internal identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0042",
+                "name": "Interchange sender internal sub-identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": "030",
+                "code": "S003",
+                "name": "INTERCHANGE RECIPIENT",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0010",
+                "name": "Interchange recipient identification",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0007",
+                "name": "Identification code qualifier",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..4"
+            },
+            {
+                "pos": null,
+                "code": "0014",
+                "name": "Interchange recipient internal identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0046",
+                "name": "Interchange recipient internal sub-identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": "040",
+                "code": "0048",
+                "name": "GROUP REFERENCE NUMBER",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..14"
+            },
+            {
+                "pos": "050",
+                "code": "S006",
+                "name": "APPLICATION SENDER IDENTIFICATION",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0040",
+                "name": "Application sender identification",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0007",
+                "name": "Identification code qualifier",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..4"
+            },
+            {
+                "pos": "060",
+                "code": "S007",
+                "name": "APPLICATION RECIPIENT IDENTIFICATION",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0044",
+                "name": "Application recipient identification",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..35"
+            },
+            {
+                "pos": null,
+                "code": "0007",
+                "name": "Identification code qualifier",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..4"
+            },
+            {
+                "pos": "070",
+                "code": "0062",
+                "name": "MESSAGE REFERENCE NUMBER",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..14"
+            },
+            {
+                "pos": "080",
+                "code": "S009",
+                "name": "MESSAGE IDENTIFIER",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0065",
+                "name": "Message type",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..6"
+            },
+            {
+                "pos": null,
+                "code": "0052",
+                "name": "Message version number",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0054",
+                "name": "Message release number",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0051",
+                "name": "Controlling agency, coded",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0057",
+                "name": "Association assigned code",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..6"
+            },
+            {
+                "pos": null,
+                "code": "0110",
+                "name": "Code list directory version number",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..6"
+            },
+            {
+                "pos": null,
+                "code": "0113",
+                "name": "Message type sub-function identification",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..6"
+            },
+            {
+                "pos": "090",
+                "code": "0800",
+                "name": "PACKAGE REFERENCE NUMBER",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..35"
+            },
+            {
+                "pos": "100",
+                "code": "S501",
+                "name": "SECURITY DATE AND TIME",
+                "mc": "C",
+                "repeat": 1,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0517",
+                "name": "Date and time qualifier",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0338",
+                "name": "Event date",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n..8"
+            },
+            {
+                "pos": null,
+                "code": "0314",
+                "name": "Event time",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..15"
+            },
+            {
+                "pos": null,
+                "code": "0336",
+                "name": "Time offset",
+                "mc": "C",
+                "repeat": null,
+                "representation": "n4"
+            }
+        ]
+    },
+    "USR": {
+        "name": "SECURITY RESULT",
+        "description": "Function: To contain the result of the security mechanisms. NOTES: 1. S508, two occurrences shall be used in the case of signature algorithms requiring two parameters to express the result. In the case of an RSA signature, only one occurrence of S508 shall be used. In the case of a DSA signature two occurrences of S508 shall be used.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "S508",
+                "name": "VALIDATION RESULT",
+                "mc": "M",
+                "repeat": 2,
+                "representation": null
+            },
+            {
+                "pos": null,
+                "code": "0563",
+                "name": "Validation value qualifier",
+                "mc": "M",
+                "repeat": null,
+                "representation": "an..3"
+            },
+            {
+                "pos": null,
+                "code": "0560",
+                "name": "Validation value",
+                "mc": "C",
+                "repeat": null,
+                "representation": "an..1024"
+            }
+        ]
+    },
+    "UST": {
+        "name": "SECURITY TRAILER",
+        "description": "Function: To establish a link between security header and security trailer segment groups. NOTES: 1. 0534, the value shall be identical to the value in 0534 in the corresponding USH segment.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0534",
+                "name": "SECURITY REFERENCE NUMBER",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "an..14"
+            },
+            {
+                "pos": "020",
+                "code": "0588",
+                "name": "NUMBER OF SECURITY SEGMENTS",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "n..10"
+            }
+        ]
+    },
+    "UCS": {
+        "name": "SEGMENT ERROR INDICATION",
+        "description": "Function: To identify either a segment containing an error or a missing segment, and to identify any error related to the complete segment. NOTES: 1. 0085, shall contain a value only if the error pertains to the segment identified by data element 0096.",
+        "table": [
+            {
+                "pos": "010",
+                "code": "0096",
+                "name": "SEGMENT POSITION IN MESSAGE BODY",
+                "mc": "M",
+                "repeat": 1,
+                "representation": "n..6"
+            },
+            {
+                "pos": "020",
+                "code": "0085",
+                "name": "SYNTAX ERROR, CODED",
+                "mc": "C",
+                "repeat": 1,
+                "representation": "an..3"
+            }
+        ]
+    }
+}
