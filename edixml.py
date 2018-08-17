@@ -874,7 +874,6 @@ Section control <UNZ>
 import re
 import pprint
 import xml.dom.minidom
-import xml.etree.ElementTree
 from xml.etree import ElementTree
 
 
