@@ -443,7 +443,7 @@ Version D18A Segments, Elements and Messages
 >>> sd = {**v42_sd, **d18a_sd}
 >>> ed = {**v42_ed, **d18a_ed}
 
->>> report(segments, sd, ed)
+>>> print(report(segments, sd, ed))
 UNB+UNOY:3+INVALIDATORSTUDIO:1+BYTESREADER:1+20180630:1159+6002'
 ----------------------------------------------------------------
 Interchange header <UNB>
@@ -1154,18 +1154,19 @@ def pretty_xml(root: ElementTree.Element, encoding=None, indent='    ') -> str:
     return dom.toprettyxml(encoding=encoding, indent=indent)
 
 
-def report(segments: list, sd: dict, ed: dict) -> None:
+def report(segments: list, sd: dict, ed: dict) -> str:
+    lines = []
     for s_i, (segment, data_elements) in enumerate(segments):
         if segment not in sd:
             if segment != 'UNA':
-                print(f'ERROR: skipping undefined segment: <{segment}> at index {s_i}')
+                lines.append(f'ERROR: skipping undefined segment: <{segment}> at index {s_i}')
             continue
         table = sd[segment]['table']
         edi_line = make_edi([segments[s_i]], with_una=False).decode('utf8')  # todo?
-        print(edi_line)
-        print('-' * len(edi_line))
+        lines.append(edi_line)
+        lines.append('-' * len(edi_line))
         segment_name = f"{sd[segment]['name']} <{segment}>"
-        print(segment_name)
+        lines.append(segment_name)
         for i_d, data_element in enumerate(data_elements):
             pos = str((i_d+1)*10)
             # different versions, different pos formats '010' '0010'!!!
@@ -1176,7 +1177,7 @@ def report(segments: list, sd: dict, ed: dict) -> None:
                 name = cd['name']
                 code = cd['code']
                 msg = f'  {name} ({code})'
-                print(msg)
+                lines.append(msg)
             for i_r, r in enumerate(table[start:]):
                 if len(data_element) == i_r:
                     break
@@ -1188,13 +1189,13 @@ def report(segments: list, sd: dict, ed: dict) -> None:
                 if component and 'table' in ed[code]:  # todo empty components?
                     if component not in ed[code]['table']:
                         err_msg = f"    ERROR: unknown code <{component}> not in ({code})"
-                        print(err_msg)
+                        lines.append(err_msg)
                     else:
                         code_name = ed[code]['table'][component]['name']
                 if code_name:
-                    print(msg, code_name)
+                    lines.append(msg + ' ' + code_name)
                 else:
-                    print(msg)
+                    lines.append(msg)
                 if component:
                     representation = r['representation']
                     repr_errors = []
@@ -1222,11 +1223,13 @@ def report(segments: list, sd: dict, ed: dict) -> None:
 
                     if repr_errors:
                         for e in repr_errors:
-                            print('    ERROR:', e)
+                            # print('    ERROR:', e)
+                            lines.append('    ERROR:' + str(e))
                 if not component and r['mc'] == 'M':
                     if not cd['representation'] is None:
-                        print(f'\n    Error, component <{code}> in segment {segment}')
-        print()
+                        lines.append(f'\n    Error, component <{code}> in segment {segment}')
+        lines.append('')
+    return '\n'.join(lines)
 
 
 def make_edi_xml(segments: list, sd: dict, ed: dict, root_tag='EDIFACT') -> ElementTree.Element:
