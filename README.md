@@ -14,4 +14,4 @@
 - make_xml(segments: list) -> ElementTree.Element
 - pretty_xml(root: ElementTree.Element) -> str
 
-Read the .ipynb-file for the documentation
+Read the EDIXML.ipynb-file
